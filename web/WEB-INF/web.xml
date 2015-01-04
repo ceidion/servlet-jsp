@@ -196,4 +196,53 @@
       <include-prelude>/jsp/taglib.jsp</include-prelude>
     </jsp-property-group>
   </jsp-config>
+  
+  <security-role>
+    <role-name>admin_role</role-name>
+  </security-role>
+  
+  <security-role>
+    <role-name>user_role</role-name>
+  </security-role>
+  
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>User Resource</web-resource-name>
+      <url-pattern>/secure/user/*</url-pattern>
+      <http-method>GET</http-method>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>user_role</role-name>
+    </auth-constraint>
+  </security-constraint>
+  
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Admin Resource</web-resource-name>
+      <url-pattern>/secure/admin/*</url-pattern>
+      <http-method>GET</http-method>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>admin_role</role-name>
+    </auth-constraint>
+  </security-constraint>
+  
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>file</realm-name>
+  </login-config>
+  
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>HTTPS Resource</web-resource-name>
+      <url-pattern>/secure/https/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>admin_role</role-name>
+    </auth-constraint>
+    <user-data-constraint>
+      <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>
+  
 </web-app>
