@@ -228,8 +228,12 @@
   </security-constraint>
   
   <login-config>
-    <auth-method>BASIC</auth-method>
+    <auth-method>FORM</auth-method>
     <realm-name>file</realm-name>
+    <form-login-config>
+      <form-login-page>/secure/login.html</form-login-page>
+      <form-error-page>/secure/error.html</form-error-page>
+    </form-login-config>
   </login-config>
   
   <security-constraint>
