@@ -229,7 +229,7 @@
   
   <login-config>
     <auth-method>FORM</auth-method>
-    <realm-name>file</realm-name>
+    <realm-name>JDBC_Local_MySQL_test</realm-name>
     <form-login-config>
       <form-login-page>/secure/login.html</form-login-page>
       <form-error-page>/secure/error.html</form-error-page>
